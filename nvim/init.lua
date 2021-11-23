@@ -19,7 +19,7 @@ require('packer').startup(function()
     require('gitsigns').setup()
   end }
   use 'neovim/nvim-lspconfig'        -- Collection of configurations for built-in LSP client
-  use 'marko-cerovac/material.nvim'         -- Theme
+  use 'folke/tokyonight.nvim'
   use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', config = function() require'nvim-tree'.setup {} end}
   use 'nvim-telescope/telescope-symbols.nvim'
@@ -185,17 +185,12 @@ local on_attach = function(_client, bufnr)
 end
 
 -- Theme setup
-require('material').setup()
-
--- Toggle material theme
-vim.api.nvim_set_keymap('n', '<leader>mm', [[<Cmd>lua require('material.functions').toggle_style()<CR>]], { noremap = true, silent = true })
-
-vim.g.material_style = "lighter"
+vim.cmd[[colorscheme tokyonight]]
 
 require('lualine').setup {
   options = {
     -- ... your lualine config
-    theme = 'material-nvim'
+    theme = 'tokyonight'
     -- ... your lualine config
   }
 }
