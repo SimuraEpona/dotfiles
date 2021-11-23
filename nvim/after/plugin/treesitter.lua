@@ -6,3 +6,7 @@ require'nvim-treesitter.configs'.setup {
     disable = { "c" },  -- list of language that will be disabled
   },
 }
+
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+
