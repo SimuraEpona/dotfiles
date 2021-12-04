@@ -214,7 +214,7 @@ nvim_lsp.elixirls.setup {
 
 -- Make sure run `brew install rust-analyzer` to install rust_analyzer
 -- Enable the following language servers
-local servers = { 'cssls', 'tsserver', 'intelephense', 'rust_analyzer' }
+local servers = { 'cssls', 'tsserver', 'intelephense', 'solargraph' }
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {

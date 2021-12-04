@@ -10,7 +10,11 @@ export ZSH="/Users/epona/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH="$PATH:~/.gem/ruby/3.0.0/bin"
+export PATH="$PATH:$HOME/.composer/vendor/bin" # Composer Path
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -72,7 +76,7 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git asdf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,3 +106,5 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias intel="arch -x86_64 "
+alias ibrew="arch -x86_64 /usr/local/bin/brew"
+alias nah='git reset --hard && git clean -fd'
