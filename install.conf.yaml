@@ -7,6 +7,7 @@
 - link:
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
+    ~/.zshrc: zshrc
 
 
 - shell:
