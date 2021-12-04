@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+if [ $# -gt 0 ]; then
+
+  if [ "$1" == "start" ]; then
+    docker-compose up -d
+
+  elif [ "$1" == "stop" ]; then
+    docker-compose down
+
+  elif [ "$1" == "dump" ]; then
+      heroku pg:backups:download -a comiru-staging && \
+      docker cp latest.dump "$(docker-compose ps -q postgres)":/backups && \
+        docker-compose exec postgres bash -c "dropdb --if-exists -U postgres comiru && createdb -U postgres comiru &&  pg_restore --no-owner --no-acl --clean --if-exists -j 8 -U postgres -d comiru /backups" && rm latest.dump
+
+    
+  else
+    docker-compose "$@"
+
+  fi
+else
+  docker-compose ps
+fi
