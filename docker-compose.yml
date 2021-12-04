@@ -1,0 +1,23 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: postgres
+    ports:
+      - 5432:5432
+    volumes: 
+      - dbdata:/var/lib/postgresql/data
+    command: ["postgres", "-c", "log_statement=all"]
+  redis:
+    image: redis:6-alpine
+    ports:
+      - 6379:6379
+    volumes:
+      - cachedata:/data
+volumes:
+  dbdata:
+    driver: local
+  cachedata:
+    driver: local
