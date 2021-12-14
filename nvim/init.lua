@@ -206,15 +206,9 @@ require('lualine').setup {
 local util = require"lspconfig".util
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-nvim_lsp.elixirls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { vim.loop.os_homedir().."/.config/nvim/elixir-ls/language_server.sh" },
-}
-
 -- Make sure run `brew install rust-analyzer` to install rust_analyzer
 -- Enable the following language servers
-local servers = { 'cssls', 'tsserver', 'intelephense', 'solargraph' }
+local servers = { 'cssls', 'tsserver', 'intelephense', 'solargraph', 'tailwindcss' }
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
