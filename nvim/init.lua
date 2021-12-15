@@ -4,7 +4,6 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'       -- Package manager
   use 'tpope/vim-fugitive'           -- Git commands in nvim
   use 'tpope/vim-rhubarb'            -- Fugitive-companion to interact with github
-  use 'tpope/vim-commentary'         -- "gc" to comment visual regions/lines
   use 'tpope/vim-surround'
   use 'mattn/emmet-vim'
 
@@ -42,7 +41,16 @@ require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip'
   use 'onsails/lspkind-nvim'
 
+  -- Database Manage
+  use 'tpope/vim-dadbod'
+  use 'kristijanhusak/vim-dadbod-ui'
+  -- use 'kristijanhusak/vim-dadbod-completion'  -- Currently not working, solve it later
+
 end)
+
+vim.g.dbs = {
+  dev =  'postgres://postgres:secret@127.0.0.1:5432/comiru'
+}
 
 --Incremental live completion
 vim.o.inccommand = "nosplit"
@@ -128,6 +136,7 @@ require('telescope').setup {
        "node_modules/.*",
        "deps/.*",
        "_build/.*",
+       "dotbot/.*",
        ".git/*"
     },
     mappings = {
