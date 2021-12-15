@@ -3,7 +3,7 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'       -- Package manager
   use 'tpope/vim-fugitive'           -- Git commands in nvim
-  use 'tpope/vim-rhubarb'            -- Fugitive-companion to interact with github
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use 'tpope/vim-surround'
   use 'mattn/emmet-vim'
 
@@ -29,6 +29,9 @@ require('packer').startup(function()
         require('Comment').setup()
     end
   }
+
+  use 'tpope/vim-rails'
+
 
   -- Completion
   use 'hrsh7th/nvim-cmp'
