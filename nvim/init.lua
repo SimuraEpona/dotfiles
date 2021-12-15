@@ -2,8 +2,7 @@
 local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'       -- Package manager
-  use 'tpope/vim-fugitive'           -- Git commands in nvim
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' } -- Git management
   use 'tpope/vim-surround'
   use 'mattn/emmet-vim'
 
