@@ -1,4 +1,5 @@
 require "user.options"
+require "user.keymaps"
 
 local use = require('packer').use
 require('packer').startup(function()
@@ -74,15 +75,6 @@ vim.g.dbs = {
 vim.wo.signcolumn="yes"
 
 
---Remap space as leader key
-vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent=true})
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
---Remap for dealing with word wrap
-vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap=true, expr = true, silent = true})
-vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", {noremap= true, expr = true, silent = true})
-
 --Remap escape to leave terminal mode
 vim.api.nvim_exec([[
   augroup Terminal
@@ -97,8 +89,6 @@ vim.g.indent_blankline_char = "│"
 vim.g.indent_blankline_filetype_exclude = { 'help', 'packer' }
 vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile'}
 vim.g.indent_blankline_char_highlight = 'LineNr'
-
-vim.api.nvim_set_keymap('n', '<F10>', '<cmd>lua ToggleMouse()<cr>', { noremap = true })
 
 -- Telescope
 require('telescope').setup {
@@ -145,9 +135,6 @@ vim.api.nvim_exec([[
   augroup end
 ]], false)
 
--- Y yank until the end of line
-vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true})
---
 -- LSP settings
 local nvim_lsp = require('lspconfig')
 local on_attach = function(_client, bufnr)
@@ -199,18 +186,6 @@ end
 
 -- Map :Format to vim.lsp.buf.formatting()
 vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
-
-
-vim.api.nvim_set_keymap("i", "jj", "<Esc>", {})
-
-
--- Split windows
-vim.api.nvim_set_keymap("n", "<Leader>vsp", ":vsp<cr>", {})
-vim.api.nvim_set_keymap("n", "<Leader>hsp", ":split<cr>", {})
-vim.api.nvim_set_keymap("n", "<C-J>", "<C-W><C-J>", {})
-vim.api.nvim_set_keymap("n", "<C-K>", "<C-W><C-K>", {})
-vim.api.nvim_set_keymap("n", "<C-H>", "<C-W><C-H>", {})
-vim.api.nvim_set_keymap("n", "<C-L>", "<C-W><C-L>", {})
 
 -- Emmet config
 vim.g.user_emmet_leader_key=','
