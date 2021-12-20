@@ -1,3 +1,4 @@
+require "user.options"
 
 local use = require('packer').use
 require('packer').startup(function()
@@ -69,34 +70,7 @@ vim.g.dbs = {
   dev =  'postgres://postgres:secret@127.0.0.1:5432/comiru'
 }
 
---Incremental live completion
-vim.o.inccommand = "nosplit"
 
---Set highlight on search
-vim.o.hlsearch = false
-vim.o.incsearch = true
-
---Make line numbers default
-vim.wo.number = true
-
---Do not save when switching buffers
-vim.o.hidden = true
-
---Enable mouse mode
-vim.o.mouse = "a"
-
---Enable break indent
-vim.o.breakindent = true
-
---Save undo history
-vim.cmd[[set undofile]]
-
---Case insensitive searching UNLESS /C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
---Decrease update time
-vim.o.updatetime = 250
 vim.wo.signcolumn="yes"
 
 
@@ -118,31 +92,11 @@ vim.api.nvim_exec([[
   augroup end
 ]], false)
 
---Add map to enter paste mode
-vim.o.pastetoggle="<F3>"
-
 --Map blankline
 vim.g.indent_blankline_char = "│"
 vim.g.indent_blankline_filetype_exclude = { 'help', 'packer' }
 vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile'}
 vim.g.indent_blankline_char_highlight = 'LineNr'
-
--- Toggle to disable mouse mode and indentlines for easier paste
-ToggleMouse = function()
-  if vim.o.mouse == 'a' then
-    vim.cmd[[IndentBlanklineDisable]]
-    vim.wo.signcolumn='no'
-    vim.o.mouse = 'v'
-    vim.wo.number = false
-    print("Mouse disabled")
-  else
-    vim.cmd[[IndentBlanklineEnable]]
-    vim.wo.signcolumn='yes'
-    vim.o.mouse = 'a'
-    vim.wo.number = true
-    print("Mouse enabled")
-  end
-end
 
 vim.api.nvim_set_keymap('n', '<F10>', '<cmd>lua ToggleMouse()<cr>', { noremap = true })
 
@@ -249,14 +203,8 @@ vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", {})
 
-vim.o.tabstop = 8
-vim.o.expandtab = true
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
 
 -- Split windows
-vim.o.splitbelow = true
-vim.o.splitright = true
 vim.api.nvim_set_keymap("n", "<Leader>vsp", ":vsp<cr>", {})
 vim.api.nvim_set_keymap("n", "<Leader>hsp", ":split<cr>", {})
 vim.api.nvim_set_keymap("n", "<C-J>", "<C-W><C-J>", {})
