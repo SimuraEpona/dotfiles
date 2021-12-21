@@ -4,6 +4,7 @@ require "user.plugins"
 require "user.colorscheme"
 require "user.cmp"
 require "user.telescope"
+require "user.treesitter"
 
 vim.g.dbs = {
   dev =  'postgres://postgres:secret@127.0.0.1:5432/comiru'
