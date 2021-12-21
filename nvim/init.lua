@@ -2,6 +2,7 @@ require "user.options"
 require "user.keymaps"
 require "user.plugins"
 require "user.colorscheme"
+require "user.cmp"
 
 vim.g.dbs = {
   dev =  'postgres://postgres:secret@127.0.0.1:5432/comiru'
