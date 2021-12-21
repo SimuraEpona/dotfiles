@@ -1,79 +1,12 @@
 require "user.options"
 require "user.keymaps"
-
-local use = require('packer').use
-require('packer').startup(function()
-  use 'wbthomason/packer.nvim'       -- Package manager
-  use 'tpope/vim-surround'
-  use 'mattn/emmet-vim'
-
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-  -- UI to select things (files, grep results, open buffers...)
-  use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
-  -- Add indentation guides even on blank lines
-  use { 'lukas-reineke/indent-blankline.nvim' }
-  -- Add git related info in the signs columns and popups
-  use {
-    'TimUntersberger/neogit',
-    requires = 'nvim-lua/plenary.nvim'
-  }
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
-    config = function()
-      require('gitsigns').setup()
-    end 
-  }
-  use {
-    'ruifm/gitlinker.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-    config = function ()
-      require('gitlinker').setup()
-    end
-  }
-
-  use 'neovim/nvim-lspconfig'        -- Collection of configurations for built-in LSP client
-  use 'folke/tokyonight.nvim'
-  use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
-  use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', config = function() require'nvim-tree'.setup {} end}
-  use 'nvim-telescope/telescope-symbols.nvim'
-
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
-  }
-
-  use 'tpope/vim-rails'
-
-
-  -- Completion
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-cmdline'
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'onsails/lspkind-nvim'
-
-  -- Database Manage
-  use 'tpope/vim-dadbod'
-  use 'kristijanhusak/vim-dadbod-ui'
-  -- use 'kristijanhusak/vim-dadbod-completion'  -- Currently not working, solve it later
-
-end)
+require "user.plugins"
 
 vim.g.dbs = {
   dev =  'postgres://postgres:secret@127.0.0.1:5432/comiru'
 }
 
-
 vim.wo.signcolumn="yes"
-
 
 --Remap escape to leave terminal mode
 vim.api.nvim_exec([[
