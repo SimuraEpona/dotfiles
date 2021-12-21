@@ -1,6 +1,7 @@
 require "user.options"
 require "user.keymaps"
 require "user.plugins"
+require "user.colorscheme"
 
 vim.g.dbs = {
   dev =  'postgres://postgres:secret@127.0.0.1:5432/comiru'
@@ -90,9 +91,6 @@ local on_attach = function(_client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 end
-
--- Theme setup
-vim.cmd[[colorscheme tokyonight]]
 
 require('lualine').setup {
   options = {
