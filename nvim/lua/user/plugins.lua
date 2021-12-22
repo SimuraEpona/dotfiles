@@ -106,6 +106,8 @@ return packer.startup(function(use)
   use 'kristijanhusak/vim-dadbod-ui'
   -- use 'kristijanhusak/vim-dadbod-completion'  -- Currently not working, solve it later
 
+  use "windwp/nvim-autopairs"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
