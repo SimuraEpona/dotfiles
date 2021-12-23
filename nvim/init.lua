@@ -20,6 +20,8 @@ vim.g.dbs = {
   dev =  'postgres://postgres:secret@127.0.0.1:5432/comiru'
 }
 
+vim.api.nvim_command('autocmd BufRead,BufNewFile *.blade.php set filetype=blade')
+
 vim.wo.signcolumn="yes"
 
 --Map blankline

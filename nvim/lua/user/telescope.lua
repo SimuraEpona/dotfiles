@@ -11,6 +11,7 @@ telescope.setup {
        "node_modules/.*",
        "deps/.*",
        "_build/.*",
+       "vendor/.*",
        "dotbot/.*",
        ".git/*"
     },
