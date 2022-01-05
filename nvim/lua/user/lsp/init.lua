@@ -30,7 +30,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 -- Make sure run `brew install rust-analyzer` to install rust_analyzer
 -- Enable the following language servers
-local servers = { 'cssls', 'tsserver', 'intelephense', 'solargraph', 'tailwindcss', 'jsonls' }
+local servers = { 'cssls', 'tsserver', 'intelephense', 'solargraph', 'jsonls' }
 
 for _, lsp in ipairs(servers) do
   local opts =  {
