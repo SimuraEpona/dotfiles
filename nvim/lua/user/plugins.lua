@@ -86,6 +86,8 @@ return packer.startup(function(use)
 
   use 'tpope/vim-rails'
 
+  use 'simrat39/symbols-outline.nvim'
+
 
   -- Completion
   use 'hrsh7th/nvim-cmp'
