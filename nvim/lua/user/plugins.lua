@@ -53,11 +53,18 @@ return packer.startup(function(use)
   use { 'lukas-reineke/indent-blankline.nvim' }
   -- Add git related info in the signs columns and popups
   use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 
   use 'neovim/nvim-lspconfig'        -- Collection of configurations for built-in LSP client
   use 'folke/tokyonight.nvim'
   use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
-  use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', config = function() require'nvim-tree'.setup {} end}
+  use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', config = function() require'nvim-tree'.setup { disable_netrw = false } end}
   use 'nvim-telescope/telescope-symbols.nvim'
 
   use {
