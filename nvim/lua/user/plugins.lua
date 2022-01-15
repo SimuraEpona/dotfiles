@@ -40,10 +40,16 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
   use 'wbthomason/packer.nvim'       -- Package manager
-  use 'tpope/vim-surround'
   use 'mattn/emmet-vim'
+
+  use 'folke/tokyonight.nvim' -- ColorScheme
+
+  -- tpope
+  use 'tpope/vim-surround'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
+  use 'tpope/vim-rails'
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
@@ -51,32 +57,19 @@ return packer.startup(function(use)
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
   -- Add indentation guides even on blank lines
   use { 'lukas-reineke/indent-blankline.nvim' }
-  -- Add git related info in the signs columns and popups
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    }
-  }
+  use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}} -- show buffer diff on left
 
   use 'neovim/nvim-lspconfig'        -- Collection of configurations for built-in LSP client
-  use 'folke/tokyonight.nvim'
   use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', config = function() require'nvim-tree'.setup { disable_netrw = false } end}
   use 'nvim-telescope/telescope-symbols.nvim'
 
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
-  }
+  use {'numToStr/Comment.nvim', config = function() require('Comment').setup() end}
 
-  use 'tpope/vim-rails'
 
-  use 'simrat39/symbols-outline.nvim'
+  use 'simrat39/symbols-outline.nvim' -- show file symbols on right side
+
+  use 'akinsho/toggleterm.nvim'
 
 
   -- Completion
