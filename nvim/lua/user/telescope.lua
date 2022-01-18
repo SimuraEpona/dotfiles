@@ -34,7 +34,7 @@ local options = { noremap = true, silent = true}
 --Add leader shortcuts
 keymap('n', '<leader>f', "<cmd>lua require('telescope.builtin').find_files()<cr>", options)
 keymap('n', '<leader><space>', "<cmd>lua require('telescope.builtin').buffers()<cr>", options)
-keymap('n', '<leader>l', "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", options)
+-- keymap('n', '<leader>l', "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", options)
 -- keymap('n', '<leader>r', "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", options)
 keymap('n', '<leader>?', "<cmd>lua require('telescope.builtin').oldfiles()<cr>", options)
 keymap('n', '<leader>sd', "<cmd>lua require('telescope.builtin').grep_string()<cr>", options)
