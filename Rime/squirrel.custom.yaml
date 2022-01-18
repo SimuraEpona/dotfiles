@@ -1,0 +1,5 @@
+patch:
+  style/horizontal: true
+  style/color_scheme: ink
+  style/font_face: "UbuntuMono Nerd Font Mono,.PingFang SC,HanaMinA,HanaMinB"
+  style/font_point: 14 

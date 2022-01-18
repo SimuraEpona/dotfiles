@@ -1,3 +1,8 @@
 nvim/plugin/packer_compiled.lua
 *.DS_Store*
+Rime/sync/*
+Rime/luna_pinyin.userdb/*
+Rime/build/*
+Rime/user.yaml
+Rime/installation.yaml
 

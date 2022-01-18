@@ -9,6 +9,7 @@
     ~/.config/nvim: nvim
     ~/.zshrc: zsh/zshrc
     ~/.zprofile: zsh/zprofile
+    ~/Library/Rime: Rime
 
 
 - shell:
