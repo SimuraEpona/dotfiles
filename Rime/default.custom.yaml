@@ -1,6 +1,0 @@
-patch:
-  schema_list:
-    - schema: double_pinyin_mspy
-    - schema: luna_pinyin
-
-  menu/page_size: 9
