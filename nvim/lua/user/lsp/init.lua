@@ -45,6 +45,11 @@ for _, lsp in ipairs(servers) do
     print(opts)
   end
 
+  if lsp == "tailwindcss" then
+    opts.root_dir = util.root_pattern('tailwind.config.js', 'assets/tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git')
+  end
+
+
   if lsp == "elixirls" then
     opts.cmd = {"/Users/epona/dotfiles/elixir-ls/language_server.sh"}
   end
