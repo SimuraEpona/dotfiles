@@ -30,7 +30,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 -- Make sure run `brew install rust-analyzer` to install rust_analyzer
 -- Enable the following language servers
-local servers = { 'cssls', 'tsserver', 'intelephense', 'solargraph', 'jsonls' }
+local servers = { 'cssls', 'tsserver', 'intelephense', 'tailwindcss', 'jsonls', 'elixirls' }
 
 for _, lsp in ipairs(servers) do
   local opts =  {
@@ -43,6 +43,10 @@ for _, lsp in ipairs(servers) do
 	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 
     print(opts)
+  end
+
+  if lsp == "elixirls" then
+    opts.cmd = {"/Users/epona/dotfiles/elixir-ls/language_server.sh"}
   end
 
 

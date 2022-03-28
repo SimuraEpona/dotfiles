@@ -5,7 +5,6 @@
 - clean: ['~']
 
 - link:
-    ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.zshrc: zsh/zshrc
     ~/.zprofile: zsh/zprofile
