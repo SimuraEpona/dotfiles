@@ -3,7 +3,7 @@ require'nvim-treesitter.configs'.setup {
   ignore_install = { "kotlin" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "c" },  -- list of language that will be disabled
+    disable = { "c", "kotlin", "latex" },  -- list of language that will be disabled
   },
 }
 
