@@ -24,7 +24,8 @@ local options = {
   relativenumber = false,                  -- set relative numbered lines
   signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
   wrap = false,                            -- display lines as one long line
-  inccommand = "nosplit"                   -- incremental live completion
+  inccommand = "nosplit",                  -- incremental live completion
+  fileencodings = "utf-8,sjis,default"
 }
 
 for k, v in pairs(options) do
