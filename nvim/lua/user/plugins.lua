@@ -60,6 +60,8 @@ return packer.startup(function(use)
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}} -- show buffer diff on left
 
   use 'neovim/nvim-lspconfig'        -- Collection of configurations for built-in LSP client
+  use 'williamboman/nvim-lsp-installer'
+
   use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', config = function() require'nvim-tree'.setup { disable_netrw = false } end}
   use 'nvim-telescope/telescope-symbols.nvim'

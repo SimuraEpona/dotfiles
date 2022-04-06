@@ -1,7 +1,7 @@
-local has_lsp, lspconfig = pcall(require, "lspconfig")
-if not has_lsp then
-  return
-end
+-- local has_lsp, lspconfig = pcall(require, "lspconfig")
+-- if not has_lsp then
+--   return
+-- end
 
 local util = require"lspconfig.util"
 
@@ -28,35 +28,53 @@ end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- Make sure run `brew install rust-analyzer` to install rust_analyzer
--- Enable the following language servers
-local servers = { 'cssls', 'tsserver', 'intelephense', 'tailwindcss', 'jsonls', 'elixirls' }
-
-for _, lsp in ipairs(servers) do
-  local opts =  {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-
-  if lsp == "jsonls" then
-    local jsonls_opts = require("user.lsp.settings.jsonls")
-	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-
-    print(opts)
-  end
-
-  if lsp == "tailwindcss" then
-    opts.root_dir = util.root_pattern('tailwind.config.js', 'assets/tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git')
-  end
-
-
-  if lsp == "elixirls" then
-    opts.cmd = {"/Users/epona/dotfiles/elixir-ls/language_server.sh"}
-  end
-
-
-  lspconfig[lsp].setup(opts)
-end
 
 -- Map :Format to vim.lsp.buf.formatting()
 vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+
+
+local lsp_installer = require("nvim-lsp-installer")
+
+local servers = {
+  "elixirls",
+  "cssls",
+  "tsserver",
+  "tailwindcss",
+  "jsonls"
+}
+
+for _, name in pairs(servers) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found and not server:is_installed() then
+    print("Installing " .. name)
+    server:install()
+  end
+end
+
+-- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+-- or if the server is already installed).
+lsp_installer.on_server_ready(function(server)
+    local opts =  {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+
+    if server.name == "jsonls" then
+      local jsonls_opts = require("user.lsp.settings.jsonls")
+      opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+    end
+
+    -- if server.name == "tailwindcss" then
+    --   opts.root_dir = util.root_pattern('tailwind.config.js', 'assets/tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git')
+    -- end
+
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
+
+    -- This setup() function will take the provided server configuration and decorate it with the necessary properties
+    -- before passing it onwards to lspconfig.
+    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    server:setup(opts)
+end)
