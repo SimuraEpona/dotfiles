@@ -1,3 +1,3 @@
 -- Theme setup
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme everforest]]
 
