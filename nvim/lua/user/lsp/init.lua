@@ -70,9 +70,13 @@ lsp_installer.on_server_ready(function(server)
       opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
      end
 
-    -- if server.name == "tailwindcss" then
-    --   opts.root_dir = util.root_pattern('tailwind.config.js', 'assets/tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git')
-    -- end
+    if server.name == "tailwindcss" then
+      opts.init_options = {
+        userLanguages = {
+          heex = "html"
+        }
+      }
+    end
 
     -- (optional) Customize the options passed to the server
     -- if server.name == "tsserver" then
