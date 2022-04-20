@@ -43,7 +43,7 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'       -- Package manager
   use 'mattn/emmet-vim'
 
-  use 'sainnhe/everforest'
+  use 'EdenEast/nightfox.nvim'
 
   -- tpope
   use 'tpope/vim-surround'

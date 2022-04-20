@@ -45,7 +45,7 @@ vim.api.nvim_exec([[
 require('lualine').setup {
   options = {
     -- ... your lualine config
-    theme = 'everforest'
+    theme = 'nightfox'
     -- ... your lualine config
   }
 }
