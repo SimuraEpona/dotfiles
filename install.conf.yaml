@@ -6,8 +6,10 @@
 
 - link:
     ~/.config/nvim: nvim
+    ~/.config/kitty: kitty
     ~/.zshrc: zsh/zshrc
     ~/.zprofile: zsh/zprofile
+    ~/.zshenv: zsh/zshenv
 
 
 - shell:

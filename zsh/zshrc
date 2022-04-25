@@ -96,6 +96,11 @@ source $ZSH/oh-my-zsh.sh
    export EDITOR='nvim'
  fi
 
+if [[ ! ( $(darkMode) =~ 'Dark' ) ]]; then
+
+else
+fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
