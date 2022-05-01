@@ -10,8 +10,10 @@ if not snip_status_ok then
   return
 end
 
+luasnip.filetype_extend("heex", {"eelixir"})
+
 -- https://github.com/L3MON4D3/LuaSnip/blob/3e4da0cfea0a2f0b4749369bc7ed247c1412a854/Examples/snippets.lua#L185
-require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load()
 
 --   פּ ﯟ   some other good icons
 local kind_icons = {
