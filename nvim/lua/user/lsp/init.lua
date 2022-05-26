@@ -41,6 +41,7 @@ local servers = {
   "cssls",
   "tsserver",
   "tailwindcss",
+  "erlangls",
   "jsonls"
 }
 
