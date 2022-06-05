@@ -3,7 +3,7 @@ services:
   postgres:
     image: postgres:13-alpine
     environment:
-      POSTGRES_PASSWORD: secret
+      POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
     ports:
       - 5432:5432
