@@ -43,18 +43,18 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'       -- Package manager
   use 'mattn/emmet-vim'
 
-  use 'sainnhe/edge'
+  use 'sainnhe/edge' -- Color Scheme
 
   -- tpope
   use 'tpope/vim-surround'
   use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
-  use 'tpope/vim-rails'
+  use 'tpope/vim-rhubarb' -- github extension for vim-fugitive, :GBrose
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- UI to select things (files, grep results, open buffers...)
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
+  use 'nvim-telescope/telescope-symbols.nvim'
   -- Add indentation guides even on blank lines
   use { 'lukas-reineke/indent-blankline.nvim' }
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}} -- show buffer diff on left
@@ -64,12 +64,8 @@ return packer.startup(function(use)
 
   use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
   use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}}
-  use 'nvim-telescope/telescope-symbols.nvim'
 
   use {'numToStr/Comment.nvim', config = function() require('Comment').setup() end}
-
-
-  use 'simrat39/symbols-outline.nvim' -- show file symbols on right side
 
   use 'akinsho/toggleterm.nvim'
 
