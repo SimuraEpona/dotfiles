@@ -63,7 +63,7 @@ return packer.startup(function(use)
   use 'williamboman/nvim-lsp-installer'
 
   use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
-  use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', config = function() require'nvim-tree'.setup { disable_netrw = false } end}
+  use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}}
   use 'nvim-telescope/telescope-symbols.nvim'
 
   use {'numToStr/Comment.nvim', config = function() require('Comment').setup() end}
