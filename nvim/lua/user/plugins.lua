@@ -50,6 +50,8 @@ return packer.startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb' -- github extension for vim-fugitive, :GBrose
 
+  use 'github/copilot.vim'
+
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- UI to select things (files, grep results, open buffers...)
