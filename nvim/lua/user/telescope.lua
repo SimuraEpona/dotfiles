@@ -25,7 +25,7 @@ telescope.setup {
     generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
     file_sorter =  require'telescope.sorters'.get_fzy_sorter,
   }
-} 
+}
 
 local keymap = vim.api.nvim_set_keymap
 local options = { noremap = true, silent = true}
