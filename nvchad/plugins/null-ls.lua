@@ -14,6 +14,9 @@ local sources = {
 
   -- Lua
   b.formatting.stylua,
+
+  -- Elixir
+  b.formatting.mix
 }
 
 null_ls.setup({
