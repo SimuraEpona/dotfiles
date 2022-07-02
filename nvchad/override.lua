@@ -8,6 +8,7 @@ M.treesitter = {
     "json",
     "markdown",
     "lua",
+    "erlang",
     "eex",
     "elixir",
     "heex",
