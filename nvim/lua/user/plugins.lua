@@ -1,27 +1,27 @@
 local fn = vim.fn
 
 -- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
+  PACKER_BOOTSTRAP = fn.system({
     "git",
     "clone",
     "--depth",
     "1",
     "https://github.com/wbthomason/packer.nvim",
     install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+  })
+  print("Installing packer close and reopen Neovim...")
+  vim.cmd([[packadd packer.nvim]])
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
+vim.cmd([[
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
-]]
+]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -30,66 +30,70 @@ if not status_ok then
 end
 
 -- Have packer use a popup window
-packer.init {
+packer.init({
   display = {
     open_fn = function()
-      return require("packer.util").float { border = "rounded" }
+      return require("packer.util").float({ border = "rounded" })
     end,
   },
-}
+})
 
 -- Install your plugins here
 return packer.startup(function(use)
-  use 'wbthomason/packer.nvim'       -- Package manager
-  use 'mattn/emmet-vim'
+  use("wbthomason/packer.nvim") -- Package manager
+  use("mattn/emmet-vim")
 
-  use 'sainnhe/edge' -- Color Scheme
+  use("sainnhe/edge") -- Color Scheme
 
   -- tpope
-  use 'tpope/vim-surround'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb' -- github extension for vim-fugitive, :GBrose
+  use("tpope/vim-surround")
+  use("tpope/vim-fugitive")
+  use("tpope/vim-rhubarb") -- github extension for vim-fugitive, :GBrose
 
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
   -- UI to select things (files, grep results, open buffers...)
-  use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
-  use 'nvim-telescope/telescope-symbols.nvim'
+  use({ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } } })
+  use("nvim-telescope/telescope-symbols.nvim")
   -- Add indentation guides even on blank lines
-  use { 'lukas-reineke/indent-blankline.nvim' }
-  use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}} -- show buffer diff on left
+  use({ "lukas-reineke/indent-blankline.nvim" })
+  use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } }) -- show buffer diff on left
 
-  use 'neovim/nvim-lspconfig'        -- Collection of configurations for built-in LSP client
-  use 'williamboman/nvim-lsp-installer'
+  use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
+  use("williamboman/nvim-lsp-installer")
 
-  use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
-  use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}}
+  use({ "hoob3rt/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
+  use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } })
 
-  use {'numToStr/Comment.nvim', config = function() require('Comment').setup() end}
+  use({
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  })
 
-  use 'akinsho/toggleterm.nvim'
-
+  use("akinsho/toggleterm.nvim")
 
   -- Completion
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-cmdline'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'onsails/lspkind-nvim'
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-nvim-lsp")
+  use("hrsh7th/cmp-nvim-lua")
+  use("hrsh7th/cmp-cmdline")
+  use("saadparwaiz1/cmp_luasnip")
+  use("onsails/lspkind-nvim")
 
   -- Snippets
-  use 'L3MON4D3/LuaSnip'
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use("L3MON4D3/LuaSnip")
+  use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
   -- Database Manage
-  use 'tpope/vim-dadbod'
-  use 'kristijanhusak/vim-dadbod-ui'
+  use("tpope/vim-dadbod")
+  use("kristijanhusak/vim-dadbod-ui")
   -- use 'kristijanhusak/vim-dadbod-completion'  -- Currently not working, solve it later
 
-  use "windwp/nvim-autopairs"
+  use("windwp/nvim-autopairs")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

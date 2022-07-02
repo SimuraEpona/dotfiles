@@ -1,6 +1,6 @@
 local M = {}
 
-local override = require "custom.override"
+local override = require("custom.override")
 
 M.plugins = {
   options = {
@@ -37,7 +37,7 @@ M.plugins = {
     "zipPlugin",
   },
 
-  user = require "custom.plugins",
+  user = require("custom.plugins"),
 
   remove = {
     "folke/which-key.nvim",

@@ -33,30 +33,30 @@ M.nvimtree = {
 M.telescope = {
   defaults = {
     file_ignore_patterns = {
-       "node_modules/.*",
-       "deps/.*",
-       "_build/.*",
-       "vendor/.*",
-       "dotbot/.*",
-       ".git/*"
+      "node_modules/.*",
+      "deps/.*",
+      "_build/.*",
+      "vendor/.*",
+      "dotbot/.*",
+      ".git/*",
     },
-  }
+  },
 }
 
 M.blankline = {
-   filetype_exclude = {
-      "help",
-      "terminal",
-      "alpha",
-      "packer",
-      "lspinfo",
-      "TelescopePrompt",
-      "TelescopeResults",
-      "nvchad_cheatsheet",
-      "lsp-installer",
-      "norg",
-      "",
-   },
+  filetype_exclude = {
+    "help",
+    "terminal",
+    "alpha",
+    "packer",
+    "lspinfo",
+    "TelescopePrompt",
+    "TelescopeResults",
+    "nvchad_cheatsheet",
+    "lsp-installer",
+    "norg",
+    "",
+  },
 }
 
 return M

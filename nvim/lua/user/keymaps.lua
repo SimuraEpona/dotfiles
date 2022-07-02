@@ -27,6 +27,6 @@ vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Y yank until the end of line
-vim.keymap.set('n', 'Y', 'y$', opts)
+vim.keymap.set("n", "Y", "y$", opts)
 
-vim.keymap.set('i', "jj", "<Esc>")
+vim.keymap.set("i", "jj", "<Esc>")

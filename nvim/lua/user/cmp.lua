@@ -10,7 +10,7 @@ if not snip_status_ok then
   return
 end
 
-luasnip.filetype_extend("heex", {"eelixir"})
+luasnip.filetype_extend("heex", { "eelixir" })
 
 -- https://github.com/L3MON4D3/LuaSnip/blob/3e4da0cfea0a2f0b4749369bc7ed247c1412a854/Examples/snippets.lua#L185
 require("luasnip.loaders.from_vscode").lazy_load()
@@ -45,7 +45,7 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
-cmp.setup ({
+cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
@@ -53,14 +53,14 @@ cmp.setup ({
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {
+    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<CR>"] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
-    },
-    ['<Tab>'] = function(fallback)
+    }),
+    ["<Tab>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
@@ -69,7 +69,7 @@ cmp.setup ({
         fallback()
       end
     end,
-    ['<S-Tab>'] = function(fallback)
+    ["<S-Tab>"] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
@@ -98,10 +98,10 @@ cmp.setup ({
     ghost_text = false,
   },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'path' },
-    { name = 'luasnip' }, -- For luasnip users.
+    { name = "nvim_lsp" },
+    { name = "path" },
+    { name = "luasnip" }, -- For luasnip users.
   }, {
-    { name = 'buffer', keyword_length = 5 },
-  })
+    { name = "buffer", keyword_length = 5 },
+  }),
 })

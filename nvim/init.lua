@@ -3,43 +3,44 @@
 -- https://github.com/tjdevries/config_manager
 --
 
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
-require "user.cmp"
-require "user.telescope"
-require "user.treesitter"
-require "user.autopairs"
-require "user.lsp"
+require("user.options")
+require("user.keymaps")
+require("user.plugins")
+require("user.colorscheme")
+require("user.cmp")
+require("user.telescope")
+require("user.treesitter")
+require("user.autopairs")
+require("user.lsp")
 
 -- Turn off builtin plugins I do not use.
-require "user.disable_builtin"
+require("user.disable_builtin")
 
-vim.api.nvim_command('autocmd BufRead,BufNewFile *.blade.php set filetype=blade')
+vim.api.nvim_command("autocmd BufRead,BufNewFile *.blade.php set filetype=blade")
 
-vim.wo.signcolumn="yes"
+vim.wo.signcolumn = "yes"
 
 -- Change preview window location
 vim.g.splitbelow = true
 
 -- Highlight on yank
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
-]], false)
+]],
+  false
+)
 
-
-require('lualine').setup {
+require("lualine").setup({
   options = {
     -- ... your lualine config
-    theme = 'edge'
+    theme = "edge",
     -- ... your lualine config
-  }
-}
+  },
+})
 
 -- Emmet config
-vim.g.user_emmet_leader_key=','
-
+vim.g.user_emmet_leader_key = ","

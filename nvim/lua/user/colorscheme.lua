@@ -1,3 +1,2 @@
 -- Theme setup
-vim.cmd[[colorscheme edge]]
-
+vim.cmd([[colorscheme edge]])

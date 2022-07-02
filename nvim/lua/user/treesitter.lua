@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup({
   ensure_installed = {
     "css",
     "eex",
@@ -9,11 +9,10 @@ require'nvim-treesitter.configs'.setup {
     "javascript",
     "json",
     "lua",
-    "yaml"
+    "yaml",
   },
   highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { "c", "kotlin", "latex" },  -- list of language that will be disabled
+    enable = true, -- false will disable the whole extension
+    disable = { "c", "kotlin", "latex" }, -- list of language that will be disabled
   },
-}
-
+})
