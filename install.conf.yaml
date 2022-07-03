@@ -5,8 +5,8 @@
 - clean: ['~']
 
 - link:
-    # ~/.config/nvim: nvim
-    ~/.config/nvim/lua/custom: nvchad
+    ~/.config/nvim: nvim
+    # ~/.config/nvim/lua/custom: nvchad
     ~/.config/kitty: kitty
     ~/.zshrc: zsh/zshrc
     ~/.zprofile: zsh/zprofile
