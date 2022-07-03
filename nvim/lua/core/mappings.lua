@@ -29,6 +29,13 @@ M.general = {
   }
 }
 
+M.nvimtree = {
+   n = {
+      -- toggle
+      ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
+   },
+}
+
 M.telescope = {
    n = {
       -- find
