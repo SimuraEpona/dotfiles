@@ -15,17 +15,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd([[packadd packer.nvim]])
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-augroup packer_user_config
-autocmd!
-autocmd BufWritePost plugins.lua source <afile> | PackerSync
-augroup end
-]])
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
+local present, packer = pcall(require, "packer")
+if not present then
   return
 end
 
@@ -203,21 +194,25 @@ return packer.startup(function(use)
     end
   })
 
-  use("mattn/emmet-vim")
+  use({
+    "mattn/emmet-vim",
+    ft = {
+      "html",
+      "eex",
+      "heex",
+    }
+  })
 
-  use("sainnhe/edge") -- Color Scheme
+  use({
+    "sainnhe/edge"
+  })
 
   -- tpope
   use("tpope/vim-surround")
   use("tpope/vim-fugitive")
   use("tpope/vim-rhubarb") -- github extension for vim-fugitive, :GBrose
 
-
-
-
-
   use("akinsho/toggleterm.nvim")
-
 
 
   -- Automatically set up your configuration after cloning packer.nvim
