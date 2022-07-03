@@ -3,25 +3,16 @@
 -- https://github.com/tjdevries/config_manager
 --
 
-require("user.options")
-require("user.keymaps")
-require("user.plugins")
-require("user.colorscheme")
-require("user.cmp")
-require("user.telescope")
-require("user.treesitter")
-require("user.autopairs")
-require("user.lsp")
+require("core")
+require("core.options")
 
--- Turn off builtin plugins I do not use.
-require("user.disable_builtin")
+vim.defer_fn(function()
+   require("core.utils").load_mappings()
+end, 0)
 
-vim.api.nvim_command("autocmd BufRead,BufNewFile *.blade.php set filetype=blade")
+require("plugins")
 
-vim.wo.signcolumn = "yes"
-
--- Change preview window location
-vim.g.splitbelow = true
+vim.cmd([[colorscheme edge]])
 
 -- Highlight on yank
 vim.api.nvim_exec(
@@ -34,13 +25,3 @@ vim.api.nvim_exec(
   false
 )
 
-require("lualine").setup({
-  options = {
-    -- ... your lualine config
-    theme = "edge",
-    -- ... your lualine config
-  },
-})
-
--- Emmet config
-vim.g.user_emmet_leader_key = ","
