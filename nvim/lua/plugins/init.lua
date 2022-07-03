@@ -32,7 +32,7 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
   use({
-    "wbthomason/packer.nvim"
+    "wbthomason/packer.nvim",
   })
 
   use({
@@ -45,7 +45,7 @@ return packer.startup(function(use)
     moduel = "nvim-web-devicons",
     config = function()
       require("plugins.configs.others").devicons()
-    end
+    end,
   })
 
   -- Add indentation guides even on blank lines
@@ -57,7 +57,7 @@ return packer.startup(function(use)
     end,
     config = function()
       require("plugins.configs.others").blankline()
-    end
+    end,
   })
 
   use({
@@ -65,9 +65,8 @@ return packer.startup(function(use)
     cmd = "Telescope",
     config = function()
       require("plugins.configs.telescope")
-    end
+    end,
   })
-
 
   use({
     "nvim-treesitter/nvim-treesitter",
@@ -79,7 +78,7 @@ return packer.startup(function(use)
     cmd = require("core.lazy_load").treesitter_cmds,
     config = function()
       require("plugins.configs.treesitter")
-    end
+    end,
   })
 
   use({
@@ -98,7 +97,7 @@ return packer.startup(function(use)
     config = function()
       require("plugins.configs.lsp_installer")
       require("plugins.configs.lspconfig")
-    end
+    end,
   })
 
   -- load luasnips + cmp related in insert mode only
@@ -113,7 +112,7 @@ return packer.startup(function(use)
     after = "friendly-snippets",
     config = function()
       require("plugins.configs.cmp")
-    end
+    end,
   })
 
   use({
@@ -153,10 +152,10 @@ return packer.startup(function(use)
   use({
     "kyazdani42/nvim-tree.lua",
     ft = "alpha",
-    cmd = {"NvimTreeToggle", "NvimTreeFocus"},
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function()
       require("plugins.configs.nvimtree")
-    end
+    end,
   })
 
   use({
@@ -191,7 +190,7 @@ return packer.startup(function(use)
     "nvim-lualine/lualine.nvim",
     config = function()
       require("plugins.configs.others").lualine()
-    end
+    end,
   })
 
   use({
@@ -200,11 +199,11 @@ return packer.startup(function(use)
       "html",
       "eex",
       "heex",
-    }
+    },
   })
 
   use({
-    "sainnhe/edge"
+    "sainnhe/edge",
   })
 
   -- tpope
@@ -214,6 +213,13 @@ return packer.startup(function(use)
 
   use("akinsho/toggleterm.nvim")
 
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    after = "nvim-lspconfig",
+    config = function()
+      require("plugins.configs.null-ls")
+    end,
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

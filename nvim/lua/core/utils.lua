@@ -45,7 +45,6 @@ M.load_mappings = function(mappings, mapping_opt)
       end
     end
   end
-
 end
 
 return M

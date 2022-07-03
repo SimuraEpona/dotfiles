@@ -63,7 +63,7 @@ local options = {
         ["<C-d>"] = false,
       },
     },
-  }
+  },
 }
 
 telescope.setup(options)

@@ -33,86 +33,85 @@ M.blankline = function()
 end
 
 M.gitsigns = function()
-   -- taken from https://github.com/max397574
-   autocmd({ "BufRead" }, {
-      callback = function()
-         local function onexit(code, _)
-            if code == 0 then
-               vim.schedule(function()
-                  require("packer").loader "gitsigns.nvim"
-               end)
-            end
-         end
-         local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-         if lines ~= { "" } then
-            vim.loop.spawn("git", {
-               args = {
-                  "ls-files",
-                  "--error-unmatch",
-                  vim.fn.expand "%:p:h",
-               },
-            }, onexit)
-         end
-      end,
-   })
+  -- taken from https://github.com/max397574
+  autocmd({ "BufRead" }, {
+    callback = function()
+      local function onexit(code, _)
+        if code == 0 then
+          vim.schedule(function()
+            require("packer").loader("gitsigns.nvim")
+          end)
+        end
+      end
+      local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+      if lines ~= { "" } then
+        vim.loop.spawn("git", {
+          args = {
+            "ls-files",
+            "--error-unmatch",
+            vim.fn.expand("%:p:h"),
+          },
+        }, onexit)
+      end
+    end,
+  })
 end
 
 M.luasnip = function()
-     local present, luasnip = pcall(require, "luasnip")
+  local present, luasnip = pcall(require, "luasnip")
 
-   if not present then
-      return
-   end
+  if not present then
+    return
+  end
 
-   local options = {
-      history = true,
-      updateevents = "TextChanged,TextChangedI",
-   }
+  local options = {
+    history = true,
+    updateevents = "TextChanged,TextChangedI",
+  }
 
-   luasnip.config.set_config(options)
-      require("luasnip.loaders.from_vscode").lazy_load()
-   require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.luasnippets_path or "" })
-      vim.api.nvim_create_autocmd("InsertLeave", {
-      callback = function()
-         if
-            require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-            and not require("luasnip").session.jump_active
-         then
-            require("luasnip").unlink_current()
-         end
-      end,
-   })
+  luasnip.config.set_config(options)
+  require("luasnip.loaders.from_vscode").lazy_load()
+  require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.luasnippets_path or "" })
+  vim.api.nvim_create_autocmd("InsertLeave", {
+    callback = function()
+      if
+        require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+        and not require("luasnip").session.jump_active
+      then
+        require("luasnip").unlink_current()
+      end
+    end,
+  })
 end
 
 M.comment = function()
-     local present, nvim_comment = pcall(require, "Comment")
+  local present, nvim_comment = pcall(require, "Comment")
 
-   if not present then
-      return
-   end
+  if not present then
+    return
+  end
 
-   local options = {}
-   nvim_comment.setup(options)
+  local options = {}
+  nvim_comment.setup(options)
 end
 
 M.autopairs = function()
+  local present1, autopairs = pcall(require, "nvim-autopairs")
+  local present2, cmp = pcall(require, "cmp")
 
-     local present1, autopairs = pcall(require, "nvim-autopairs")
-   local present2, cmp = pcall(require, "cmp")
+  if not (present1 and present2) then
+    return
+  end
 
-   if not (present1 and present2) then
-      return
-   end
+  local options = {
+    fast_wrap = {},
+    disable_filetype = { "TelescopePrompt", "vim" },
+  }
 
-   local options = {
-      fast_wrap = {},
-      disable_filetype = { "TelescopePrompt", "vim" },
-   }
+  autopairs.setup(options)
 
-      autopairs.setup(options)
-
-   local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-   cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+  local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+  cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 end
 
 M.lualine = function()

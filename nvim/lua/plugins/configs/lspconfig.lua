@@ -66,7 +66,6 @@ for _, server in ipairs(servers) do
   end
 
   lspconfig[server].setup(opts)
-
 end
 
 return M
