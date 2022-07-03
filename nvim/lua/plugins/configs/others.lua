@@ -115,6 +115,20 @@ M.autopairs = function()
    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 end
 
+M.lualine = function()
+  local present, lualine = pcall(require, "lualine")
+
+  if not present then
+    return
+  end
+
+  lualine.setup({
+    options = {
+      theme = "edge",
+    },
+  })
+end
+
 M.devicons = function()
   local present, devicons = pcall(require, "nvim-web-devicons")
 
