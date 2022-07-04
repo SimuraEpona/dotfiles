@@ -213,14 +213,6 @@ return packer.startup(function(use)
 
   use("akinsho/toggleterm.nvim")
 
-  use({
-    "jose-elias-alvarez/null-ls.nvim",
-    after = "nvim-lspconfig",
-    config = function()
-      require("plugins.configs.null-ls")
-    end,
-  })
-
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
