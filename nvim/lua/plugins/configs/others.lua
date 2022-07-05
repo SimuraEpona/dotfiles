@@ -10,7 +10,7 @@ M.blankline = function()
 
   local options = {
     indentLine_enabled = 1,
-    char = "▏",
+    char = "┆",
     filetype_exclude = {
       "help",
       "terminal",
@@ -43,6 +43,7 @@ M.gitsigns = function()
           end)
         end
       end
+
       local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
       if lines ~= { "" } then
         vim.loop.spawn("git", {
@@ -74,9 +75,8 @@ M.luasnip = function()
   require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.luasnippets_path or "" })
   vim.api.nvim_create_autocmd("InsertLeave", {
     callback = function()
-      if
-        require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-        and not require("luasnip").session.jump_active
+      if require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+          and not require("luasnip").session.jump_active
       then
         require("luasnip").unlink_current()
       end
