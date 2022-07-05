@@ -23,6 +23,9 @@ opt.expandtab = true
 opt.shiftwidth = 2
 opt.smartindent = true
 
+-- global status
+opt.laststatus = 3
+
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
