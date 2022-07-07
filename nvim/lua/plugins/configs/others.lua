@@ -33,29 +33,23 @@ M.blankline = function()
 end
 
 M.gitsigns = function()
-  -- taken from https://github.com/max397574
-  autocmd({ "BufRead" }, {
-    callback = function()
-      local function onexit(code, _)
-        if code == 0 then
-          vim.schedule(function()
-            require("packer").loader("gitsigns.nvim")
-          end)
-        end
-      end
+  local present, gitsigns = pcall(require, "gitsigns")
 
-      local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-      if lines ~= { "" } then
-        vim.loop.spawn("git", {
-          args = {
-            "ls-files",
-            "--error-unmatch",
-            vim.fn.expand("%:p:h"),
-          },
-        }, onexit)
-      end
-    end,
-  })
+  if not present then
+    return
+  end
+
+  local options = {
+    signs = {
+      add = { hl = "DiffAdd", text = "", numhl = "GitSignsAddNr" },
+      change = { hl = "DiffChange", text = "", numhl = "GitSignsChangeNr" },
+      delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
+      topdelete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
+      changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
+    },
+  }
+
+  gitsigns.setup(options)
 end
 
 M.luasnip = function()
