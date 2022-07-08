@@ -36,6 +36,19 @@ M.nvimtree = {
   },
 }
 
+M.gitsigns = {
+  n = {
+    ["<leader>gl"] = { "<cmd> Gitsigns toggle_current_line_blame <CR>", "   toggle current line blame" },
+  }
+}
+
+
+M.fugitive = {
+  n = {
+    ["<leader>gg"] = { "<cmd> Git <CR>", "   start git action" },
+  }
+}
+
 M.telescope = {
   n = {
     -- find
@@ -48,8 +61,9 @@ M.telescope = {
     ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "   show keys" },
 
     -- git
-    ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "   git commits" },
-    ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "  git status" },
+    ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "   git commits" },
+    ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "  git status" },
+    ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "  git branches" },
 
     -- pick a hidden term
     --["<leader>pt"] = { "<cmd> Telescope terms <CR>", "   pick hidden term" },
