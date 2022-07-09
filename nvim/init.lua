@@ -12,8 +12,6 @@ end, 0)
 
 require("plugins")
 
-vim.cmd([[colorscheme edge]])
-
 -- Highlight on yank
 vim.api.nvim_exec(
   [[

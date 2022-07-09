@@ -203,7 +203,10 @@ return packer.startup(function(use)
   })
 
   use({
-    "sainnhe/edge",
+    "navarasu/onedark.nvim",
+    config = function()
+      require("plugins.configs.others").onedark()
+    end
   })
 
   -- tpope
