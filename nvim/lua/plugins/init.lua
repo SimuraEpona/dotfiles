@@ -209,7 +209,6 @@ return packer.startup(function(use)
   -- tpope
   use("tpope/vim-surround")
   use("tpope/vim-fugitive")
-  use("tpope/vim-rhubarb") -- github extension for vim-fugitive, :GBrose
 
   use("akinsho/toggleterm.nvim")
 

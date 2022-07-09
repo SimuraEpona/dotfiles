@@ -8,4 +8,4 @@ autocmd("BufEnter", {
   command = "set fo-=c fo-=r fo-=o",
 })
 
-vim.t.bufs = vim.api.nvim_list_bufs()
+vim.t.bufs = api.nvim_list_bufs()
