@@ -43,6 +43,7 @@ local servers = {
   "tailwindcss",
   "erlangls",
   "jsonls",
+  "intelephense",
 }
 
 local merge_tb = vim.tbl_deep_extend
