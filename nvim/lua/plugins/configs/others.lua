@@ -1,23 +1,13 @@
 local M = {}
 
-M.onedark = function()
-  local present, onedark = pcall(require, "onedark")
+M.onedarkpro = function()
+  local present, onedark = pcall(require, "onedarkpro")
 
   if not present then
     return
   end
 
-  local options = {
-    style = 'deep',
-    transparent = true,
-    term_colors = true,
-    -- toggle theme style ---
-    toggle_style_key = '<leader>ts', -- Default keybinding to toggle
-    toggle_style_list = { 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light' }, -- List of styles to toggle between
-  }
-
-  onedark.setup(options)
-  onedark.load()
+  onedark.setup()
 end
 
 M.blankline = function()
@@ -143,7 +133,7 @@ M.lualine = function()
 
   lualine.setup({
     options = {
-      theme = "onedark",
+      theme = "onedarkpro",
     },
   })
 end

@@ -203,9 +203,9 @@ return packer.startup(function(use)
   })
 
   use({
-    "navarasu/onedark.nvim",
+    "olimorris/onedarkpro.nvim",
     config = function()
-      require("plugins.configs.others").onedark()
+      require("plugins.configs.others").onedarkpro()
     end
   })
 
