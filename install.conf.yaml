@@ -7,8 +7,8 @@
 - link:
     ~/.config/nvim: nvim
     ~/.config/fish: fish
-    # ~/.config/nvim/lua/custom: nvchad
     ~/.config/kitty: kitty
+    ~/.config/karabiner: karabiner
     # ~/.zshrc: zsh/zshrc
     # ~/.zprofile: zsh/zprofile
     # ~/.zshenv: zsh/zshenv
