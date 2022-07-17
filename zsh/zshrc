@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/epona/.oh-my-zsh"
+# export ZSH="/Users/epona/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -78,7 +78,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # ASDF
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
@@ -95,11 +95,6 @@ source $ZSH/oh-my-zsh.sh
  else
    export EDITOR='nvim'
  fi
-
-if [[ ! ( $(darkMode) =~ 'Dark' ) ]]; then
-
-else
-fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
