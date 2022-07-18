@@ -203,6 +203,10 @@ return packer.startup(function(use)
   })
 
   use({
+    "rcarriga/nvim-notify"
+  })
+
+  use({
     "olimorris/onedarkpro.nvim",
     config = function()
       require("plugins.configs.others").onedarkpro()
