@@ -133,7 +133,7 @@ M.lualine = function()
 
   lualine.setup({
     options = {
-      theme = "onedarkpro",
+      theme = "nightfox",
     },
   })
 end

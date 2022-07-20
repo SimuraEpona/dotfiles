@@ -206,11 +206,15 @@ return packer.startup(function(use)
     "rcarriga/nvim-notify"
   })
 
+  -- use({
+  --   "olimorris/onedarkpro.nvim",
+  --   config = function()
+  --     require("plugins.configs.others").onedarkpro()
+  --   end
+  -- })
+
   use({
-    "olimorris/onedarkpro.nvim",
-    config = function()
-      require("plugins.configs.others").onedarkpro()
-    end
+    "EdenEast/nightfox.nvim"
   })
 
   -- tpope

@@ -12,7 +12,7 @@ end, 0)
 
 require("plugins")
 
-vim.cmd("colorscheme onedarkpro")
+vim.cmd("colorscheme nightfox")
 
 -- Highlight on yank
 vim.api.nvim_exec(
