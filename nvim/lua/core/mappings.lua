@@ -65,6 +65,9 @@ M.telescope = {
     ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "  git status" },
     ["<leader>gb"] = { "<cmd> Telescope git_branches <CR>", "  git branches" },
 
+    -- lsp
+    ["<leader>ls"] = { "<cmd> Telescope lsp_document_symbols <CR>", "  LSP document symbols" },
+
     -- pick a hidden term
     --["<leader>pt"] = { "<cmd> Telescope terms <CR>", "   pick hidden term" },
   },
@@ -100,13 +103,6 @@ M.lspconfig = {
         vim.lsp.buf.implementation()
       end,
       "   lsp implementation",
-    },
-
-    ["<leader>ls"] = {
-      function()
-        vim.lsp.buf.signature_help()
-      end,
-      "   lsp signature_help",
     },
 
     ["<leader>D"] = {
