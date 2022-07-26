@@ -8,10 +8,9 @@ lspSymbol("Info", "")
 lspSymbol("Hint", "")
 lspSymbol("Warn", "")
 
+-- Disable virtual_text since it's redundant due to lsp_lines.
 vim.diagnostic.config({
-  virtual_text = {
-    prefix = "",
-  },
+  virtual_text = false,
   signs = true,
   underline = true,
   update_in_insert = false,
