@@ -1,0 +1,17 @@
+[init]
+	defaultBranch = main
+[alias]
+	aa = add -A
+	cm = commit -m
+	b = branch
+	co = checkout
+	cob = checkout -b
+	del = branch -D
+	ll = log --oneline
+	nah = !git reset --hard && git clean -fd
+	rv = remote -v
+	st = status -sb
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
