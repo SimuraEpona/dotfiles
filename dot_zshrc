@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+
+# completion with case insensitivity
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+setopt AUTO_CD
+unsetopt BEEP
+
+##
+#  Setup ASDF
+#
+. $(brew --prefix asdf)/libexec/asdf.sh
+
+# Github Copilot
+eval "$(github-copilot-cli alias -- "$0")"
+
+##
+#  Setup starship
+#
+eval "$(starship init zsh)"
+
+source $HOME/antigen.zsh
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+
+# Tell Antigen that you're done.
+antigen apply

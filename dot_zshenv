@@ -1,0 +1,2 @@
+export COMPOSER_MEMORY_LIMIT=-1         # set no memory limit when using composer
+export LANG="en_US.UTF-8"
