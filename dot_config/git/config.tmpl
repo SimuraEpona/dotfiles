@@ -1,5 +1,8 @@
 [init]
 	defaultBranch = main
+[user]
+  email = {{ .email | quote }}
+  name = {{ .name | quote }}
 [alias]
 	aa = add -A
 	cm = commit -m
