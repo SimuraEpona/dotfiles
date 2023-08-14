@@ -1,12 +1,17 @@
 #!/usr/bin/env zsh
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# completion with case insensitivity
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+#history in cache directory:
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.cache/zsh/history
 
 setopt AUTO_CD
 unsetopt BEEP
 
-export EDITOR=nvim
+export EDITOR=code
 
 ## ALIAS
 alias vim=nvim
@@ -23,8 +28,10 @@ eval "$(github-copilot-cli alias -- "$0")"
 
 source $HOME/antigen.zsh
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
+antigen theme romkatv/powerlevel10k
+antigen bundle zdharma-continuum/fast-syntax-highlighting
 
 # Tell Antigen that you're done.
 antigen apply
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
