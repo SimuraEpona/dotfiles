@@ -21,11 +21,6 @@ alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 # Github Copilot
 eval "$(github-copilot-cli alias -- "$0")"
 
-##
-#  Setup starship
-#
-eval "$(starship init zsh)"
-
 source $HOME/antigen.zsh
 
 antigen bundle zsh-users/zsh-syntax-highlighting
