@@ -12,6 +12,7 @@ setopt AUTO_CD
 unsetopt BEEP
 
 export EDITOR=code
+export PATH=$PATH:~/.composer/vendor/bin
 
 ## ALIAS
 alias vim=nvim
